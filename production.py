@@ -19,9 +19,5 @@ class Production:
                     or move.product.lot_is_required(move.from_location,
                         move.to_location))
                 if move.allow_split_lot_expiry and lot_required:
-                    splitted_moves = move._split_by_lot_expiry()
-                    if not all(bool(m.lot) for m in splitted_moves):
-                        assigned = False
-        if not assigned:
-            return False
+                    move._split_by_lot_expiry()
         return super(Production, cls).assign_try(productions)
