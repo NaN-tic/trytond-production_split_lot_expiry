@@ -3,15 +3,14 @@
 from trytond.pool import PoolMeta
 
 __all__ = ['Production']
-__metaclass__ = PoolMeta
 
 
 class Production:
+    __metaclass__ = PoolMeta
     __name__ = 'production'
 
     @classmethod
     def assign_try(cls, productions):
-        assigned = True
         for production in productions:
             for move in production.inputs:
                 lot_required = ('production'
