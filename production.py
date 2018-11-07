@@ -5,8 +5,7 @@ from trytond.pool import PoolMeta
 __all__ = ['Production']
 
 
-class Production:
-    __metaclass__ = PoolMeta
+class Production(metaclass=PoolMeta):
     __name__ = 'production'
 
     @classmethod
