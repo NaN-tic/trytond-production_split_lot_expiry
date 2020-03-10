@@ -16,7 +16,7 @@ class Production(metaclass=PoolMeta):
             for move in production.inputs:
                 lot_required = ('production'
                         in [t.code for t in move.product.lot_required
-                            if move.produc.lot_required]
+                            if move.product.lot_required]
                     or move.product.lot_is_required(move.from_location,
                         move.to_location))
                 if move.allow_split_lot_expiry and lot_required:
