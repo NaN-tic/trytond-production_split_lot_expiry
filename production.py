@@ -15,9 +15,8 @@ class Production(metaclass=PoolMeta):
         for production in productions:
             for move in production.inputs:
                 if move.product.lot_required:
-                    lot_required = ('production'
-                        in [t.code for t in move.product.lot_required
-                            if move.product.lot_required])
+                    lot_required = ('production' in [
+                        t for t in move.product.lot_required])
                 else:
                     lot_required = (move.product.lot_is_required(
                             move.from_location, move.to_location))
