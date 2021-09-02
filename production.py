@@ -1,6 +1,7 @@
 # The COPYRIGHT file at the top level of this repository contains the full
 # copyright notices and license terms.
 from trytond.pool import PoolMeta, Pool
+from trytond.model import dualmethod
 
 __all__ = ['Production']
 
@@ -8,7 +9,7 @@ __all__ = ['Production']
 class Production(metaclass=PoolMeta):
     __name__ = 'production'
 
-    @classmethod
+    @dualmethod
     def assign_try(cls, productions):
         Move = Pool().get('stock.move')
         moves = []
